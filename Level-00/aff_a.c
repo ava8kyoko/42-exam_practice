@@ -22,7 +22,7 @@
 int		main(int argc, char *argv[]) // Standard way, but can name those variables
 {									// like you want!
 	write(1, "a\n", 2); // LOL, not a good way to do that but works for the exam
-	return (0);			// check aff_z
+	return (0);			// see aff_z for a better example
 }
 
 // write(file descriptor, "string" OR a &pointer, number of character OR strlen)

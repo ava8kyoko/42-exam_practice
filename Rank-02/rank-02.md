@@ -8,8 +8,8 @@ The Exam has 4 questions total, with a random question picked from each level, s
 
 ### Question 1 (Level 1)
 
-- (first_word)[https://github.com/ava8kyoko/42-Exam_practices/blob/master/Rank-02/Level-01/first_word.c]
-- (fizzbuzz)[]
+- [first_word](https://github.com/ava8kyoko/42-Exam_practice/blob/master/Rank-02/Level-01/first_word.c)
+- fizzbuzz
 - ft_strcpy
 - ft_strlen
 - ft_swap
@@ -76,6 +76,5 @@ Question 4 (Level 4)
 - sort_list
 
 Inspiration :
-- (pasqualerossi)[https://github.com/pasqualerossi/42-School-Exam-Rank-02]
-- (HalimHamidov)[https://github.com/HalimHamidov/C-Exam-Alone-In-The-Dark---Beginner/blob/f695f18889556a471a1fd04df3e64ad941ff967b/Rendu%20/42-exam-miner-/maparmar/level1/first_word/first_word.subject.en.txt]
-]
+- [pasqualerossi](https://github.com/pasqualerossi/42-School-Exam-Rank-02)
+- [HalimHamidov](https://github.com/HalimHamidov/C-Exam-Alone-In-The-Dark---Beginner/blob/f695f18889556a471a1fd04df3e64ad941ff967b/Rendu%20/42-exam-miner-/maparmar/level1/first_word/first_word.subject.en.txt)
