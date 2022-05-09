@@ -11,20 +11,33 @@
 
 #include <stdio.h> // printf
 
-void	swap_XOR_toggling(int *a, int *b)
+// Toggling a bit means that if K-th bit is 1, then change it to 0 and if it is 0 then change it to 1.
+// https://en.wikipedia.org/wiki/Bit_manipulation
+// https://en.wikipedia.org/wiki/Bitwise_operation
+// https://stackoverflow.com/questions/47981/how-do-you-set-clear-and-toggle-a-single-bit
+// https://www.geeksforgeeks.org/set-clear-and-toggle-a-given-bit-of-a-number-in-c/
+
+// https://www.programiz.com/c-programming/bitwise-operators#xor
+// ^ The result of bitwise XOR operator is 1 if the corresponding bits of two operands are opposite.
+// 0 + 0 = 0
+// 1 + 1 = 0
+// 0 + 1 = 1
+// 1 + 0 = 1
+void	swap_XOR_toggling(int *a, int *b) // with bitwise operator
 {
 	if (*a == *b)
 		return ;
 	*a ^= *b ^= *a ^= *b;
-}
 
-void	swap_bitwise_operator(int *a, int *b)
-{
-	if (*a == *b)
-		return ;
-	*a = *a ^ *b;
-	*b = *a ^ *b;
-	*a = *a ^ *b;
+	// Same as :
+	// *a ^= *b;
+	// *b ^= *a;
+	// *a ^= *b;
+
+	// Same add :
+	// *a = *a ^ *b;
+	// *b = *a ^ *b;
+	// *a = *a ^ *b;
 }
 
 void	swap_temp(int *a, int *b)
@@ -45,12 +58,6 @@ int	main(void)
 	printf("BEFORE : %c, %c\n", a, b);
 	swap_temp(&a, &b);
 	printf("AFTER : %c, %c\n", a, b);
-
-	int c = 'c';
-	int d = 'd';
-	printf("BEFORE : %c, %c\n", c, d);
-	swap_bitwise_operator(&c, &d);
-	printf("AFTER : %c, %c\n", c, d);
 
 	int e = 'e';
 	int f = 'f';
