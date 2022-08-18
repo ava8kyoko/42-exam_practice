@@ -20,3 +20,29 @@
 // $>./alpha_mirror | cat -e
 // $
 // $>
+
+#include <unistd.h>
+
+void	alpha_mirror(char *alpha)
+{
+	int		i;
+
+	i = -1;
+	while (alpha[++i])
+	{
+		if (alpha[i] >= 'A' && alpha[i] <= 'Z')
+			alpha[i] = 'Z' - alpha[i] + 'A';
+		else if (alpha[i] >= 'a' && alpha[i] <= 'z')
+			alpha[i] = 'z' - alpha[i] + 'a';
+		write(1, &alpha[i], 1);
+		
+	}
+}
+
+int	main(int argc, char **argv)
+{
+	if (argc == 2) // a.out + arg
+		alpha_mirror(argv[1]);
+	write(1, "\n", 1);
+	return (0);
+}
