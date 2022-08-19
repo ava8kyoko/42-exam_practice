@@ -37,7 +37,7 @@ void	camel_to_snake(char *camel)
 	}
 }
 
-int	main(int argv, char **argc)
+int	main(int argc, char **argv)
 {
 	char *camel;
 

@@ -49,7 +49,7 @@ void do_op(char *first, char *operator, char *second)
 		printf("%d\n", atoi(first) % atoi(second));
 }
 
-int	main(int argv, char **argc)
+int	main(int argc, char **argv)
 {
 	if (argv == 4) // a.out, integer, operator (+ - * / %), integer
 		do_op(argc[1], argc[2], argc[3]);

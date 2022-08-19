@@ -43,6 +43,7 @@ CARACTÈRES À NE PAS TENIR EN COMPTE
 */
 
 #include <stdio.h>
+#include <stdlib.h>
 
 int	ft_atoi(const char *str)
 {
@@ -58,21 +59,45 @@ int	ft_atoi(const char *str)
 		if (*str++ == '-') // turn to negative number
 			sign = -1;
 	}
-	while (*str && *str >= '0' && *str <= '9') // check if characters are valid numbers
+	printf("Sign : %ld\n", sign);
+	printf("Start : %ld\n", converted);
+	while (*str >= '0' && *str <= '9') // check if characters are valid numbers
 	{
-		// if (sign == 1 && (converted * 10) + (*str - '0') < converted) // find the fucking reason
-		// 	return (-1);
-		// else if ( sign == -1 && (converted * 10) + (*str - '0') < converted) // fail
-		// 	return (0);
-		converted *= 10;
-		converted += *str++ - '0';
+		converted *= 10; // add zero at the end (see it like a place value chart/tableau de numération)
+		printf("converted *= 10: %ld\n", converted);
+		converted += *str++ - '0'; // calcul position ascii
+		printf("converted += *str++ - '0': %ld\n", converted);
 	}
 	return (sign * converted);
 }
 
-int main(int argv, char **argc)
+int main(int argc, char **argv)
 {
 	printf("%d\n", ft_atoi(argc[1]));
+	printf("%d\n", atoi(argc[1]));
 
 	return (0);
 }
+
+// EXAMPLES 
+
+// ./a.out 123  
+// Sign : 1
+// Start : 0
+// converted *= 10 : 0
+// converted += *str++ - '0' : 1
+// converted *= 10 : 10
+// converted += *str++ - '0': 12
+// converted *= 10 : 120
+// converted += *str++ - '0': 123
+// 123
+
+// Sign : -1
+// Start : 0
+// converted *= 10: 0
+// converted += *str++ - '0': 1
+// converted *= 10: 10
+// converted += *str++ - '0': 12
+// converted *= 10: 120
+// converted += *str++ - '0': 123
+// -123
