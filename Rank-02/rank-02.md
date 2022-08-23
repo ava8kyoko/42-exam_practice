@@ -91,4 +91,4 @@ Question 4 (Level 4)
 
 Inspiration :
 - [pasqualerossi](https://github.com/pasqualerossi/42-School-Exam-Rank-02)
-- [HalimHamidov](https://github.com/HalimHamidov/C-Exam-Alone-In-The-Dark---Beginner/blob/f695f18889556a471a1fd04df3e64ad941ff967b/Rendu%20/42-exam-miner-/maparmar/level1/first_word/first_word.subject.en.txt)
+- [HalimHamidov](https://github.com/HalimHamidov/C-Exam-Alone-In-The-Dark---Beginner/tree/f695f18889556a471a1fd04df3e64ad941ff967b/Rendu%20/42-exam-miner-/maparmar)
