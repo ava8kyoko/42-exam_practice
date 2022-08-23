@@ -37,8 +37,8 @@ int    ft_strcmp(char *s1, char *s2)
 
 int		main(int argc, char **argv)
 {
-	printf("%d\n", ft_strcmp(argv[1], argv[2]));
-	printf("%d\n", strcmp(argv[1], argv[2]));
+	printf("ft_strcmp : %d\n", ft_strcmp(argv[1], argv[2]));
+	printf("Original : %d\n", strcmp(argv[1], argv[2]));
 
 	return (0);
 }

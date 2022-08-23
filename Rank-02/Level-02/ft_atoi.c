@@ -73,8 +73,8 @@ int	ft_atoi(const char *str)
 
 int main(int argc, char **argv)
 {
-	printf("%d\n", ft_atoi(argc[1]));
-	printf("%d\n", atoi(argc[1]));
+	printf("ft_atoi : %d\n", ft_atoi(argc[1]));
+	printf("Original : %d\n", atoi(argc[1]));
 
 	return (0);
 }

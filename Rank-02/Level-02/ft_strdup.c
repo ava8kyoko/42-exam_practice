@@ -44,39 +44,16 @@ char	*ft_strdup(char *src)
 	dest = malloc(sizeof(char) * ft_strlen(src) + 1);
 	if (!src || !dest)
 		return (0);
-	while (*src)
-	{
-		printf("src : %c\n", *src);
-		dest[i++] = *src++;
-		printf("dest : %c\n", *dest);
-	}
+	i = -1;
+	while (src[++i])
+		dest[i] = src[i];
 	dest[i] = '\0';
 	return (dest);
 }
 
-// char	*ft_strdup(char *src)
-// {
-// 	int	i = 0;
-// 	int	length = 0;
-// 	char	*strcpy = malloc(length + 1);
-
-// 	while (src[length])
-// 		length++;
-// 	if (strcpy != NULL)
-// 	{
-// 		while (src[i])
-// 		{
-// 			strcpy[i] = src[i];
-// 			i++;
-// 		}
-// 		strcpy[i] = '\0';
-// 	}
-// 	return (strcpy);
-// }
-
 int		main(int argc, char **argv)
 {
-	printf("%s\n", ft_strdup(argv[1]));
-	printf("%s\n", strdup(argv[1]));
+	printf("ft_strdup : %s\n", ft_strdup(argv[1]));
+	printf("Original : %s\n", strdup(argv[1]));
 	return (0);
 }
