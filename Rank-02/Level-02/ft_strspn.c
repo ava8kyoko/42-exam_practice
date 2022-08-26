@@ -32,50 +32,29 @@ https://www.youtube.com/watch?v=ewWG3HxHrl4
 #include <stdio.h> // printf
 #include <string.h> // strspn
 
-size_t	ft_strlen(const char *str)
+char	*ft_strchr(const char *str, int character)
+{
+	while (*str)
+	{
+		if (*str == (char)character)
+			return ((char *)str);
+		str++;
+	}
+	return (0);
+}
+
+size_t	ft_strspn(const char *str, const char *accept)
 {
 	size_t		i;
 
 	i = 0;
 	while (str[i])
-		i++;
-	return (i);
-}
-
-size_t	ft_strspn(const char *s, const char *accept)
-{
-	int		i;
-	int		len;
-	int		spanned;
-	
-	if (!s || !accept)
-		return (0);
-	i = 0;
-	len = ft_strlen(accept) - 1;
-	spanned = 0;
-	while (*s)
 	{
-		while (*s != accept[i] && i != len)
-			i++;
-		if (*s == accept[i])
-			spanned++;
-
-
-		// while (*s != accept[i])
-		// 	i++;
-		// while (*s == accept[i + 1])
-		// {
-		// 	i++;
-		// 	spanned++;
-		// }
-		// while (*s == accept[i])
-		// 	s++;
-		// if (*s != accept[i])
-		// 	i++;
-		// if (i == len && *s != accept[i])
-		// 	i = 0;
+		if (!ft_strchr(accept, str[i]))
+			break;
+		i++;
 	}
-	return (spanned);
+	return (i);
 }
 
 int		main(int argc, char **argv)
