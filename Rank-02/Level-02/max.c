@@ -21,7 +21,7 @@ int		max(int *tab, unsigned int len)
 	if (!tab)
 		return (0);
 	largest = *tab;
-	while (*tab)
+	while (*tab && len--)
 	{
 		if (*tab > largest)
 			largest = *tab;
@@ -30,8 +30,9 @@ int		max(int *tab, unsigned int len)
 	return (largest);
 }
 
-int		main(int argc, char **argv)
+int		main(void)
 {
-	printf("%d\n", max(argv[1], argc - 1));
+	int tab[10] = {111111, 10, 8, 3, 1, 1000, 4, 6, 5, 99999};
+	printf("%d\n", max(tab, 10));
 	return (0);
 }
