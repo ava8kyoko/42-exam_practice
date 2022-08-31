@@ -21,3 +21,28 @@ helloWorld$
 $>./camel_to_snake | cat -e
 $
 */
+
+#include <unistd.h> // write
+
+void snake_to_camel(char *str)
+{
+	while(*str)
+	{
+		if (*str == '_')
+		{
+			str++;
+			if (*str >= 'a' && *str <= 'z')
+				*str -= 32; // 32 characters between upper and lowercase
+		}
+		write(1, &*str, 1);
+		str++;
+	}
+}
+
+int	main(int argc, char **argv)
+{
+	if (argc == 2)
+		snake_to_camel(argv[1]);
+	write(1, "\n", 1);
+	return (0);
+}
