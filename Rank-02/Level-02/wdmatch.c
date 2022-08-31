@@ -26,3 +26,55 @@ $
 $>./wdmatch | cat -e
 $
 */
+
+#include <stdio.h>
+#include <unistd.h> // write
+
+int		ft_strlen(char *str)
+{
+	int		i;
+
+	while (str[i])
+		i++;
+	return (i);
+}
+
+void	wdmatch(char *first, char *second)
+{
+	int		i;
+	int		len;
+	int		position[ft_strlen(first) + 1];
+
+	i = 0;
+	len = 0;
+	while (*first)
+	{
+		while (*first != second[len] && second[len])
+		{
+			if (!second[len++])
+				len = -1;
+		}
+		if (second[len] == *first)
+			position[i++] = len;
+		first++;
+		printf("%d\n", i);
+	}
+	if (len != -1)
+	{
+		position[i] = -1;
+		i = -1;
+		while (position[++i] != -1)
+			write(1, &second[position[i]], 1);
+	}
+}
+
+int		main(int argc, char **argv)
+{
+	if (argc == 3)
+		wdmatch(argv[1], argv[2]);
+	write(1, "\n", 1);
+	return (0);
+}
+
+
+// allo 123allo
