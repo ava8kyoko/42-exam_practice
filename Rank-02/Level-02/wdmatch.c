@@ -47,9 +47,9 @@ void	wdmatch(char *first, char *second)
 
 	i = 0;
 	len = 0;
-	while (*first)
+	while (*first && len != -1)
 	{
-		while (*first != second[len] && second[len])
+		while (*first != second[len] && len != -1)
 		{
 			if (!second[len++])
 				len = -1;
@@ -57,7 +57,6 @@ void	wdmatch(char *first, char *second)
 		if (second[len] == *first)
 			position[i++] = len;
 		first++;
-		printf("%d\n", i);
 	}
 	if (len != -1)
 	{
@@ -75,6 +74,3 @@ int		main(int argc, char **argv)
 	write(1, "\n", 1);
 	return (0);
 }
-
-
-// allo 123allo
