@@ -66,17 +66,19 @@ int	ft_atoi(const char *str)
 	return (sign * converted);
 }
 
-int		check_if_prime(int number)
+int		check_print_if_prime(int number)
 {
 	size_t		i;
-	float		m; //  then round n up to the next highest whole number and call the result m
+	float		m; // then round n up to the next highest whole number and call the result m
 	float		quotient;
+	int			print;
 	
 	printf("%d\n", number);
 
 	i = 1;
 	m = number - i;
-	quotient = 1.0;
+	print = 0;
+	quotient = 1.000000;
 	while (quotient != (long)quotient)
 	{
 		quotient = (float)number / (m - i++);
@@ -86,6 +88,8 @@ int		check_if_prime(int number)
 			quotient = 0;
 			break;
 		}
+		else
+			print += m;
 	}
 	printf("%f\n", quotient);
 	return ((int)quotient);
@@ -96,7 +100,7 @@ int		add_prime_sum(char *str)
 	long	number;
 
 	number = atoi(str);
-	if (number > 1 && check_if_prime(number)) // A prime number is a whole number greater than 1 whose only factors are 1 and itself. 
+	if (number > 1 && check_print_if_prime(number)) // A prime number is a whole number greater than 1 whose only factors are 1 and itself. 
 		return (1);
 	return (0);
 }
