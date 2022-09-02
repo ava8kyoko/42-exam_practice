@@ -40,6 +40,7 @@ The number n is prime if -- and only if -- none of the q's, as derived above, ar
 https://www.techtarget.com/whatis/definition/prime-number
 */
 
+#include <stdio.h> // printf (forbidden)
 #include <stdlib.h> // exit // noreturn void exit(int status);
 #include <unistd.h> // write
 
@@ -65,17 +66,28 @@ int	ft_atoi(const char *str)
 	return (sign * converted);
 }
 
-int		check_if_prime(unsigned long number)
+int		check_if_prime(int number)
 {
-	size_t			i;
-	unsigned int	m; //  then round n up to the next highest whole number and call the result m
-	float			quotient;
+	size_t		i;
+	float		m; //  then round n up to the next highest whole number and call the result m
+	float		quotient;
 	
+	printf("%d\n", number);
+
 	i = 1;
-	m = number - 1;
-	quotient = 0;
-	while (quotient == (long)quotient)
-		quotient = number / (m - i++);
+	m = number - i;
+	quotient = 1.0;
+	while (quotient != (long)quotient)
+	{
+		quotient = (float)number / (m - i++);
+		printf("%f\n", quotient);
+		if (quotient == (long)quotient)
+		{
+			quotient = 0;
+			break;
+		}
+	}
+	printf("%f\n", quotient);
 	return ((int)quotient);
 }
 
@@ -84,14 +96,14 @@ int		add_prime_sum(char *str)
 	long	number;
 
 	number = atoi(str);
-	if (number <= 1 && check_if_prime(number)) // A prime number is a whole number greater than 1 whose only factors are 1 and itself. 
-		return (0);
-	
+	if (number > 1 && check_if_prime(number)) // A prime number is a whole number greater than 1 whose only factors are 1 and itself. 
+		return (1);
+	return (0);
 }
 
 int		main(int argc, char **argv)
 {
-	if (argc != 2 || !add_prime_sum(argv[1]));
+	if (argc != 2 || !add_prime_sum(argv[1]))
 		write(1, "0\n", 2);
 	return (0);
 }
