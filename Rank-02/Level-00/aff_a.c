@@ -19,10 +19,28 @@
 // $> ./aff_a | cat -e
 // a$
 
-int		main(int argc, char *argv[]) // Standard way, but can name those variables
-{									// like you want!
-	write(1, "a\n", 2); // LOL, not a good way to do that but works for the exam
-	return (0);			// see aff_z for a better example
+#include <unistd.h>
+
+int	main(int argc, char **argv)
+{
+	int	i;
+
+	i = -1;
+	if (argc > 1) 
+	{
+		while (argv[1][++i])
+		{
+			if (argv[1][i] == 'a')
+			{
+				write(1, "a", 1);
+				break;
+			}
+		}
+		write(1, "\n", 1);
+	}
+	else
+		write(1, "a\n", 2);
+	return (0);
 }
 
 // write(file descriptor, "string" OR a &pointer, number of character OR strlen)
