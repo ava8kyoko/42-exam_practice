@@ -22,22 +22,10 @@
 
 #include <unistd.h> // write
 
-int		main(int argc, char *argv[])
-{
-	int		i;
+#include <unistd.h>
 
-	if (argc == 2)
-	{
-		i = -1;
-		while (argv[1][++i])
-		{
-			if (argv[1][i] == 'z')
-			{
-				write(1, &argv[1][i], 1);
-				break; // I don't like to use break, I can do better
-			} 		// But this is an example of the way to use it.
-		}
-	}
-	write(1, "\n", 1);
+int	main(int argc, char **argv)
+{
+	write(1, "z\n", 2);
 	return (0);
 }
