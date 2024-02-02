@@ -17,21 +17,17 @@
 // $> ./aff_last_param
 // $
 
-#include <unistd.h> // write
+#include <unistd.h>
 
-int		main(int argc, char *argv[])
+int	main(int argc, char **argv)
 {
-	int		i;
-	int		last;
+	int	i;
 
-	if (argc >= 2)
+	if (argc > 1)
 	{
-		last = 0;
-		while (argv[last + 1]) // count how much arguments there are.
-			last++;
 		i = -1;
-		while (argv[last][++i])
-			write(1, &argv[last][i], 1);
+		while (argv[argc - 1][++i])
+			write(1, &argv[argc - 1][i], 1);
 	}
 	write(1, "\n", 1);
 	return (0);
